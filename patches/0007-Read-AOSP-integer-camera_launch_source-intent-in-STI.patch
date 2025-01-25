@@ -1,4 +1,4 @@
-From 1616710aad76bf83a59263fd9f3b999251c075f2 Mon Sep 17 00:00:00 2001
+From d3b58a56b74bcfc2be75509cc4159e3db5b2ccc8 Mon Sep 17 00:00:00 2001
 From: Arian <arian.kulmer@web.de>
 Date: Tue, 15 Oct 2024 18:58:34 +0200
 Subject: [PATCH 7/9] Read AOSP integer camera_launch_source intent in
@@ -6,14 +6,14 @@ Subject: [PATCH 7/9] Read AOSP integer camera_launch_source intent in
 
 MIUI changed the camera_launch_source to be a string, but AOSP provides integers.
 ---
- smali/d/d/a/b4.smali | 83 ++++++++++++++------------------------------
- 1 file changed, 27 insertions(+), 56 deletions(-)
+ smali/com/android/camera/p2.smali | 78 +++++++++++--------------------
+ 1 file changed, 27 insertions(+), 51 deletions(-)
 
-diff --git a/smali/d/d/a/b4.smali b/smali/d/d/a/b4.smali
-index bb1870a2f..980cfb364 100644
---- a/smali/d/d/a/b4.smali
-+++ b/smali/d/d/a/b4.smali
-@@ -1181,27 +1181,21 @@
+diff --git a/smali/com/android/camera/p2.smali b/smali/com/android/camera/p2.smali
+index 7b684848..fef81490 100644
+--- a/smali/com/android/camera/p2.smali
++++ b/smali/com/android/camera/p2.smali
+@@ -909,25 +909,21 @@
  
      const-string v0, "com.android.systemui.camera_launch_source"
  
@@ -23,7 +23,6 @@ index bb1870a2f..980cfb364 100644
 -
 -    const-string v0, "lockscreen_affordance"
 -
--    .line 7
 -    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 -
 -    move-result v0
@@ -35,7 +34,6 @@ index bb1870a2f..980cfb364 100644
 -    const-string v0, "power_double_tap"
 +    move-result p0
  
--    .line 8
 -    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 +    # CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP = 1
 +    const/4 v1, 0x1
@@ -51,7 +49,7 @@ index bb1870a2f..980cfb364 100644
  
      :cond_3
      const/4 v2, 0x1
-@@ -2858,9 +2852,11 @@
+@@ -2604,9 +2600,11 @@
  
      const-string v1, "com.android.systemui.camera_launch_source"
  
@@ -63,9 +61,9 @@ index bb1870a2f..980cfb364 100644
 +
 +    move-result v0
  
-     .line 2
      new-instance v1, Ljava/lang/StringBuilder;
-@@ -2871,7 +2867,7 @@
+ 
+@@ -2616,7 +2614,7 @@
  
      invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
  
@@ -74,7 +72,7 @@ index bb1870a2f..980cfb364 100644
  
      invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
  
-@@ -2894,20 +2890,24 @@
+@@ -2638,19 +2636,23 @@
  
      move-result v1
  
@@ -84,7 +82,6 @@ index bb1870a2f..980cfb364 100644
  
      if-eqz v1, :cond_0
  
-     .line 4
 -    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 +    const/4 v2, 0x1
  
@@ -103,12 +100,12 @@ index bb1870a2f..980cfb364 100644
 +
 +    return-object v2
  
-     .line 5
      :cond_0
-@@ -2924,38 +2924,9 @@
+     iget-object p0, p0, Lcom/android/camera/p2;->a:Landroid/content/Intent;
+@@ -2665,35 +2667,9 @@
+ 
      if-eqz p0, :cond_1
  
-     .line 6
 -    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 -
 -    move-result p0
@@ -117,16 +114,14 @@ index bb1870a2f..980cfb364 100644
 -
 -    const-string p0, "double_click_volume_down"
 -
--    .line 7
 -    invoke-static {v0, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 -
 -    move-result p0
 -
 -    if-nez p0, :cond_1
 -
--    const-string p0, "stabilizer"
+-    const-string/jumbo p0, "stabilizer"
 -
--    .line 8
 -    invoke-static {v0, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 -
 -    move-result p0
@@ -135,7 +130,6 @@ index bb1870a2f..980cfb364 100644
 -
 -    const-string p0, "miwatch"
 -
--    .line 9
 -    invoke-static {v0, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 -
 -    move-result p0
@@ -147,5 +141,5 @@ index bb1870a2f..980cfb364 100644
      :cond_1
      const/4 v2, 0x1
 -- 
-2.39.5
+2.48.1
 

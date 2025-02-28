@@ -6,14 +6,14 @@ Subject: [PATCH 4/9] Change com.android.camera.action.REVIEW to
 
 This is the standard intent for review actions
 ---
- smali/com/android/camera/i3.smali | 4 ++--
- smali/com/android/camera/x5.smali | 2 +-
+ smali/com/android/camera/k3.smali | 4 ++--
+ smali/com/android/camera/z5.smali | 2 +-
  2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/smali/com/android/camera/i3.smali b/smali/com/android/camera/i3.smali
+diff --git a/smali/com/android/camera/k3.smali b/smali/com/android/camera/k3.smali
 index 4b6ae32b..3aee6a39 100644
---- a/smali/com/android/camera/i3.smali
-+++ b/smali/com/android/camera/i3.smali
+--- a/smali/com/android/camera/k3.smali
++++ b/smali/com/android/camera/k3.smali
 @@ -1101,7 +1101,7 @@
  
      move-result p0
@@ -32,10 +32,10 @@ index 4b6ae32b..3aee6a39 100644
  
      invoke-static {p1, v1, p0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
  
-diff --git a/smali/com/android/camera/x5.smali b/smali/com/android/camera/x5.smali
+diff --git a/smali/com/android/camera/z5.smali b/smali/com/android/camera/z5.smali
 index 5aa1fdf8..35278b62 100644
---- a/smali/com/android/camera/x5.smali
-+++ b/smali/com/android/camera/x5.smali
+--- a/smali/com/android/camera/z5.smali
++++ b/smali/com/android/camera/z5.smali
 @@ -185,7 +185,7 @@
  
  .field public static d1:Z = false

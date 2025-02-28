@@ -4,14 +4,14 @@ Date: Fri, 8 Mar 2024 02:11:53 +0100
 Subject: [PATCH 2/9] Support third party galleries
 
 ---
- smali/com/android/camera/i3.smali                    |  7 ++-----
+ smali/com/android/camera/k3.smali                    |  7 ++-----
  .../provider/ParallelProcessProvider.smali           | 12 ------------
  2 files changed, 2 insertions(+), 17 deletions(-)
 
-diff --git a/smali/com/android/camera/i3.smali b/smali/com/android/camera/i3.smali
+diff --git a/smali/com/android/camera/k3.smali b/smali/com/android/camera/k3.smali
 index 072b4c54..bd5e45d8 100644
---- a/smali/com/android/camera/i3.smali
-+++ b/smali/com/android/camera/i3.smali
+--- a/smali/com/android/camera/k3.smali
++++ b/smali/com/android/camera/k3.smali
 @@ -1057,9 +1057,9 @@
  
      invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
@@ -42,11 +42,11 @@ index b0e3afc3..88c2fdaa 100644
  
      invoke-static {v0, v3, v2}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
  
--    invoke-static {}, Ldd/b;->k2()Ldd/b;
+-    invoke-static {}, Lid/b;->l2()Lid/b;
 -
 -    move-result-object v0
 -
--    invoke-virtual {v0}, Ldd/b;->w2()Z
+-    invoke-virtual {v0}, Lid/b;->x2()Z
 -
 -    move-result v0
 -

@@ -12,10 +12,10 @@ Signed-off-by: danielml <daniel@danielml.dev>
  smali_classes4/dd/c.smali | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/smali_classes4/dd/c.smali b/smali_classes4/dd/c.smali
+diff --git a/smali_classes4/id/c.smali b/smali_classes4/id/c.smali
 index c7ee4224..eea8f248 100644
---- a/smali_classes4/dd/c.smali
-+++ b/smali_classes4/dd/c.smali
+--- a/smali_classes4/id/c.smali
++++ b/smali_classes4/id/c.smali
 @@ -566,7 +566,7 @@
  
      invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -23,7 +23,7 @@ index c7ee4224..eea8f248 100644
 -    move-result v0
 +    const/4 v0, 0x1
  
-     sput-boolean v0, Ldd/c;->E:Z
+     sput-boolean v0, Lid/c;->E:Z
  
 -- 
 2.48.1

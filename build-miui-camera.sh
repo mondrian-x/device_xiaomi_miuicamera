@@ -9,8 +9,8 @@
 #  -w ~/.android-certs/platform.x509.pem ~/.android-certs/platform.pk8 \
 #  MiuiCameraExtracted/dist/MiuiCamera.apk MiuiCameraExtracted/dist/MiuiCamera-signed.apk
 
-~/Android/Sdk/build-tools/34.0.0/zipalign -p -f 4 MiuiCameraExtracted/dist/MiuiCamera{,.aligned}.apk
+~/mist/prebuilts/sdk/tools/linux/bin/zipalign -p -f 4 MiuiCameraExtracted/dist/MiuiCamera{,.aligned}.apk
 
-~/Android/Sdk/build-tools/34.0.0/apksigner sign \
+~/mist/prebuilts/sdk/tools/linux/bin/apksigner sign \
  --key ~/.android-certs/platform.pk8 --cert ~/.android-certs/platform.x509.pem \
  MiuiCameraExtracted/dist/MiuiCamera.aligned.apk

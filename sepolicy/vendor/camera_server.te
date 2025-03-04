@@ -1,2 +1,4 @@
+type cameraserver_vendor_prop, file_type;
+allow cameraserver cameraserver_vendor_prop:file read;
 allow cameraserver camera_data_file:dir { search write read open getattr };
 binder_call(cameraserver, hal_camera_default)

@@ -6,4 +6,4 @@ binder_call(platform_app, hal_camera_default)
 allow platform_app vendor_audio_prop:file { open read getattr map };
 allow platform_app vendor_camera_sensor_prop:file read;
 
-dontaudit hal_camera_default shell_data_file:dir search;
+allow platform_app vendor_camera_p3enable_prop:file read;
